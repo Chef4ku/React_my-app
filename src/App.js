@@ -1,10 +1,12 @@
 import './App.css';
 
+
+const HelloWorld = (p) => <div id="hello">Hello World {p.text}</div>;
+
+
 function App() {
   return (
-    <div className="App">
-      hello World
-    </div>
+    <div id="app"><HelloWorld text="X"/></div>
   );
 }
 
