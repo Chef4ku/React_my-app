@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class Task extends Component {
   styleFunc() {
@@ -20,6 +21,11 @@ class Task extends Component {
       </div>
     );
   }
+}
+
+Task.propTypes = {
+  // requiere tipo objecto, cuando propiedad task es dada. Lanza error a la consola
+  task: PropTypes.object.isRequired
 }
 
 export default Task;
