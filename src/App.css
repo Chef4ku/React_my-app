@@ -1,3 +1,8 @@
-#hello {
-    border: 1px solid #000;
+* {
+  background-color: #181a1b;
+  color: rgb(255, 226, 226);
+}
+
+.tasks {
+  border: 1px solid rgba(255, 48, 48, 0.719);
 }

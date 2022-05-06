@@ -1,42 +1,31 @@
-import React from 'react';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 
+import tasks from "./sample/task.json";
+import Tasks from "./components/Tasks";
 
-// const HelloWorld = (props) => <div id="hello">Hello World {props.text}</div>;
+/*
+const tasks = tasks.forEach(element => {
+  <div id={element.id}>
+    <h2>{element.title}</h2>
+    <p>{element.description}</p>
+  </div>  
+});
+*/
 
-class HelloWorld extends React.Component {
-  
+class App extends Component {
   state = {
-    show: false,
-  }
-
-  toggleShow = () => {
-    this.setState({show: !this.state.show})
-  }
+    tasks: tasks,
+  };
 
   render() {
-    if (this.state.show) {
-      return (
-        <div id="hello">
-          <p>Hello World {this.props.text}</p>
-
-          <button onClick={this.toggleShow}>Hide</button>
-        </div>
-      );
-    } else {
-      return (
-        <div id="hello">
-          <button onClick={this.toggleShow}>Show</button>
-        </div>
-      );  
-    }
+    return (
+      <div>
+        <h1>Hello World</h1>
+        <Tasks tasks={this.state.tasks} />
+      </div>
+    );
   }
-}
-
-function App() {
-  return (
-    <div id="app"><HelloWorld text="X"/></div>
-  );
 }
 
 export default App;
