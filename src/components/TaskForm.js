@@ -7,8 +7,8 @@ export default class TaskForm extends React.Component {
   };
 
   onSubmit = (e) => {
+    this.props.addTask(this.state.title, this.state.description);
     e.preventDefault();
-    console.log(this.state)
   };
 
   onChange = (e) => {
@@ -18,8 +18,6 @@ export default class TaskForm extends React.Component {
   };
 
   render() {
-    const task = this.state;
-
     return (
       <form onSubmit={this.onSubmit}>
         <input
@@ -27,14 +25,14 @@ export default class TaskForm extends React.Component {
           placeholder="Write a task title"
           name="title"
           onChange={this.onChange}
-          value={task.title}
+          value={this.state.title}
         />
         <br />
         <textarea
           placeholder="Write a description"
           name="description"
           onChange={this.onChange}
-          value={task.description}
+          value={this.state.description}
         ></textarea>
         <br />
         <button type="submit">Save</button>

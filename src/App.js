@@ -7,18 +7,21 @@ import tasks from "./sample/task.json";
 import Tasks from "./components/Tasks";
 import TaskForm from "./components/TaskForm";
 
-/*
-const tasks = tasks.forEach(element => {
-  <div id={element.id}>
-    <h2>{element.title}</h2>
-    <p>{element.description}</p>
-  </div>  
-});
-*/
-
 class App extends Component {
   state = {
     tasks: tasks,
+  };
+
+  addTask = (title, description) => {
+    const newTask = {
+      id: this.state.tasks.length,
+      title: title,
+      description: description,
+      done: false,
+    };
+    this.setState({
+      tasks: [...this.state.tasks, newTask],
+    });
   };
 
   render() {
@@ -30,7 +33,7 @@ class App extends Component {
         <hr />
         <br />
 
-        <TaskForm />
+        <TaskForm addTask={this.addTask} />
 
         <br />
         <hr />
