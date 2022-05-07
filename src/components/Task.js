@@ -6,7 +6,7 @@ class Task extends Component {
     return {
       fontSize: "20px",
       color: this.props.task.done ? "green" : "red",
-    }
+    };
   }
 
   render() {
@@ -15,9 +15,11 @@ class Task extends Component {
     return (
       <div className="tasks">
         <h2>{task.title}</h2>
-        <p style={this.styleFunc()}>{task.description} - Done: {task.done ? "true" : "false"}</p>
-        <input type="checkbox" />
-        <button>x</button>
+        <p style={this.styleFunc()}>
+          {task.description} - Done: {task.done ? "true" : "false"}
+        </p>
+        <input type="checkbox" onChange={this.props.checkDone.bind(this, task.id)}/>
+        <button onClick={this.props.deleteTask.bind(this, task.id)}>x</button>
       </div>
     );
   }
@@ -25,7 +27,7 @@ class Task extends Component {
 
 Task.propTypes = {
   // requiere tipo objecto, cuando propiedad task es dada. Lanza error a la consola
-  task: PropTypes.object.isRequired
-}
+  task: PropTypes.object.isRequired,
+};
 
 export default Task;

@@ -10,7 +10,12 @@ class Tasks extends Component {
     return (
       <div id="tasks">
         {this.props.tasks.map((e) => (
-          <Task task={e} key={"task_" + e.id} />
+          <Task
+            task={e}
+            key={"task_" + e.id}
+            deleteTask={this.props.deleteTask}
+            checkDone={this.props.checkDone}
+          />
         ))}
       </div>
     );
@@ -18,7 +23,7 @@ class Tasks extends Component {
 }
 
 Tasks.protTypes = {
-  tasks: PropTypes.array.isRequired
-}
+  tasks: PropTypes.array.isRequired,
+};
 
 export default Tasks;
