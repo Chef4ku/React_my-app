@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import "./App.css";
 
 import tasks from "./sample/task.json";
+
+// components
 import Tasks from "./components/Tasks";
+import TaskForm from "./components/TaskForm";
 
 /*
 const tasks = tasks.forEach(element => {
@@ -20,8 +23,19 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div id="app">
         <h1>Hello World</h1>
+
+        <br />
+        <hr />
+        <br />
+
+        <TaskForm />
+
+        <br />
+        <hr />
+        <br />
+
         <Tasks tasks={this.state.tasks} />
       </div>
     );
